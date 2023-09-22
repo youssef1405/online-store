@@ -1,12 +1,10 @@
-.product-index {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: space-between;
-  max-width: 1024px;
-  margin-bottom: 64px;
+.product-container {
+  display: grid;
+  /* border: 1px solid red; */
+  grid-template-columns: 250px 250px 250px;
+  place-content: center;
+  justify-content: space-around;
+  padding: 20px 0;
+  width: 80%;
+  margin: 20px auto;
 }
-
-/* .product-container {
-  display: flex;
-  justify-content: center;
-} */
