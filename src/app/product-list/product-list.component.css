@@ -8,3 +8,9 @@
   width: 80%;
   margin: 20px auto;
 }
+
+.products-header {
+  text-align: center;
+  margin-top: 30px;
+  color: lightblue;
+}
