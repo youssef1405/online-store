@@ -1,1 +1,7 @@
-<p>cart works!</p>
+<div class="cart-items-container">
+  <ul>
+    <li *ngFor="let item of cartItems">
+      {{ item.name }}
+    </li>
+  </ul>
+</div>

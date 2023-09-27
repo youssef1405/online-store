@@ -1,4 +1,8 @@
-<h2 class='products-header'>All Products</h2>
+<h2 class="products-header">All Products</h2>
 <div class="product-container">
-  <app-product-item *ngFor="let p of products" [product]="p"></app-product-item>
+  <app-product-item
+    *ngFor="let p of products"
+    [product]="p"
+    (addToCartEvent)="addToCart($event)"
+  ></app-product-item>
 </div>
