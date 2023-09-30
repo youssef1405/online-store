@@ -2,7 +2,11 @@
   <img src="{{ product.url }}" alt="{{ product.name }}" class="product-img" />
   <p>{{ product.name }}</p>
   <p>${{ product.price }}</p>
-  <select name="" id="" class="select-input form-control">
+  <select
+    class="select-input form-control"
+    #amount
+    (change)="setAmount(amount.value)"
+  >
     <option value="1">1</option>
     <option value="2">2</option>
     <option value="3">3</option>

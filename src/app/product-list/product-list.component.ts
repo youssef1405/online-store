@@ -10,7 +10,7 @@ import { Product } from '../models/product';
 })
 export class ProductListComponent {
   products: Product[] = [];
-  cart: Product[] = [];
+
   constructor(
     private productService: ProductService,
     private cartService: CartService

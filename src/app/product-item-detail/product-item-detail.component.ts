@@ -22,12 +22,13 @@ export class ProductItemDetailComponent {
       price: 0,
       url: '',
       description: '',
+      amount: 1,
     };
   }
 
   ngOnInit(): void {
     //this.productId = Number(this.activatedRoute.snapshot.paramMap.get('id'));
-     this.productService.getProducts().subscribe((products) => {
+    this.productService.getProducts().subscribe((products) => {
       this.activatedRoute.paramMap.subscribe((param) => {
         this.productId = Number(param.get('id'));
       });
@@ -35,5 +36,5 @@ export class ProductItemDetailComponent {
     });
   }
 
-  ngOnDestroy(){}
+  ngOnDestroy() {}
 }

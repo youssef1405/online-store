@@ -9,10 +9,18 @@ import { CartService } from '../services/cart.service';
 })
 export class CartComponent {
   cartItems: Product[] = [];
+  totalPrice: number = 0;
 
   constructor(private cartService: CartService) {}
 
   ngOnInit(): void {
     this.cartItems = this.cartService.getCartItems();
+    this.calculateTotalPrice();
+  }
+
+  calculateTotalPrice(): void {
+    for (const item of this.cartItems) {
+      this.totalPrice += item.price * item.amount;
+    }
   }
 }
