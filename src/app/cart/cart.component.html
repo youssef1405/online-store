@@ -8,11 +8,15 @@
             {{ item.name }}
           </h4>
           <p>{{ item.price }}</p>
-          <p>Amount</p>
+
+          <div class="amount-container">
+            <p>Amount:</p>
+            <input type="text" value="{{ item.amount }}" />
+          </div>
         </div>
       </li>
     </ul>
-    <p>Total {{ totalPrice }}</p>
+    <strong>Total {{ totalPrice }}</strong>
   </div>
   <app-payment-form></app-payment-form>
 </div>

@@ -11,10 +11,25 @@ import { CartComponent } from './cart/cart.component';
 import { NavbarComponent } from './navbar/navbar.component';
 import { ProductItemDetailComponent } from './product-item-detail/product-item-detail.component';
 import { PaymentFormComponent } from './payment-form/payment-form.component';
+import { FormsModule } from '@angular/forms';
 
 @NgModule({
-  declarations: [AppComponent, ProductItemComponent, ProductListComponent, CartComponent, NavbarComponent, ProductItemDetailComponent, PaymentFormComponent],
-  imports: [BrowserModule, AppRoutingModule, HttpClientModule, NgbModule],
+  declarations: [
+    AppComponent,
+    ProductItemComponent,
+    ProductListComponent,
+    CartComponent,
+    NavbarComponent,
+    ProductItemDetailComponent,
+    PaymentFormComponent,
+  ],
+  imports: [
+    BrowserModule,
+    AppRoutingModule,
+    HttpClientModule,
+    NgbModule,
+    FormsModule,
+  ],
   providers: [],
   bootstrap: [AppComponent],
 })
