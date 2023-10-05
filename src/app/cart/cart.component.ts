@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { Product } from '../models/product';
 import { CartService } from '../services/cart.service';
+import { Router } from '@angular/router';
+import { User } from '../models/user';
 
 @Component({
   selector: 'app-cart',
@@ -11,16 +13,21 @@ export class CartComponent {
   cartItems: Product[] = [];
   totalPrice: number = 0;
 
-  constructor(private cartService: CartService) {}
+  user: User = {
+    fullName: '',
+    address: '',
+    creditCardNo: '',
+  };
+
+  constructor(private cartService: CartService, private router: Router) {}
 
   ngOnInit(): void {
     this.cartItems = this.cartService.getCartItems();
-    this.calculateTotalPrice();
+    this.totalPrice = this.cartService.calculateTotalPrice();
   }
 
-  calculateTotalPrice(): void {
-    for (const item of this.cartItems) {
-      this.totalPrice += item.price * item.amount;
-    }
+  submitPayment(): void {
+    this.cartService.setCurrentUser(this.user);
+    this.router.navigate(['/confirmation']);
   }
 }

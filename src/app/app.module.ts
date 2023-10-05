@@ -10,8 +10,8 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { CartComponent } from './cart/cart.component';
 import { NavbarComponent } from './navbar/navbar.component';
 import { ProductItemDetailComponent } from './product-item-detail/product-item-detail.component';
-import { PaymentFormComponent } from './payment-form/payment-form.component';
 import { FormsModule } from '@angular/forms';
+import { ConfirmationComponent } from './confirmation/confirmation.component';
 
 @NgModule({
   declarations: [
@@ -21,7 +21,7 @@ import { FormsModule } from '@angular/forms';
     CartComponent,
     NavbarComponent,
     ProductItemDetailComponent,
-    PaymentFormComponent,
+    ConfirmationComponent,
   ],
   imports: [
     BrowserModule,

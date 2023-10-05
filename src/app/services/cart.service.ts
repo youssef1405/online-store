@@ -1,11 +1,18 @@
 import { Injectable } from '@angular/core';
 import { Product } from '../models/product';
+import { User } from '../models/user';
 
 @Injectable({
   providedIn: 'root',
 })
 export class CartService {
   cartItems: Product[] = [];
+  totalPrice: number = 0;
+  currentUser: User = {
+    fullName: '',
+    address: '',
+    creditCardNo: '',
+  };
 
   constructor() {}
 
@@ -17,4 +24,18 @@ export class CartService {
     return this.cartItems;
   }
 
+  calculateTotalPrice(): number {
+    for (const item of this.cartItems) {
+      this.totalPrice += item.price * item.amount;
+    }
+    return this.totalPrice;
+  }
+
+  setCurrentUser(user: User) {
+    this.currentUser = user;
+  }
+
+  getCurrentUser(): User {
+    return this.currentUser;
+  }
 }

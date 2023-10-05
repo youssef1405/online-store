@@ -18,5 +18,39 @@
     </ul>
     <strong>Total {{ totalPrice }}</strong>
   </div>
-  <app-payment-form></app-payment-form>
+  <form class="payment-form" (ngSubmit)="submitPayment()">
+    <div class="input-container">
+      <label>Full name</label>
+      <input
+        type="text"
+        placeholder="(minimum 3 characters)"
+        [(ngModel)]="user.fullName"
+        [ngModelOptions]="{ standalone: true }"
+      />
+    </div>
+    <div class="input-container">
+      <label for="">Address</label>
+      <input
+        type="text"
+        placeholder="(minimum 6 characters)"
+        [(ngModel)]="user.address"
+        [ngModelOptions]="{ standalone: true }"
+      />
+    </div>
+  
+    <div class="input-container">
+      <label for="">Credit card number</label>
+      <input
+        type="text"
+        placeholder="(16-digit number)"
+        [(ngModel)]="user.creditCardNo"
+        [ngModelOptions]="{ standalone: true }"
+      />
+    </div>
+    <p class="payment-msg">
+      We will never share your paymnet details with anyone else
+    </p>
+    <input type="submit" value="Submit" class="btn btn-primary" />
+  </form>
+  
 </div>
