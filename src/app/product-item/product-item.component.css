@@ -2,18 +2,39 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  /* border: 1px solid black; */
-  margin-bottom: 20px;
 }
 
 .product-img {
   width: 100%;
   padding: 10px;
   border: 1px solid lightblue;
+  cursor: pointer;
+}
+
+.product-name,
+.product-price {
+  font-size: 18px;
+  font-weight: 500;
 }
 
 .select-input {
   margin-bottom: 5px;
-  width: 50%;
-  align: center;
+  width: 35%;
+  padding: 5px;
+  self-align: center;
+  font-size: 18px;
+}
+
+.btns-container {
+  display: flex;
+  width: 100%;
+  justify-content: space-between;
+  padding: 5px;
+  align-items: center;
+}
+
+.btn {
+  font-weight: 400;
+  width: 60%;
+  padding: 10px;
 }

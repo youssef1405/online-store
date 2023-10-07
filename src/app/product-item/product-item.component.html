@@ -1,26 +1,32 @@
 <div class="product-container">
-  <img src="{{ product.url }}" alt="{{ product.name }}" class="product-img" />
-  <p>{{ product.name }}</p>
-  <p>${{ product.price }}</p>
-  <select
-    class="select-input form-control"
-    #amount
-    (change)="setAmount(amount.value)"
-  >
-    <option value="1">1</option>
-    <option value="2">2</option>
-    <option value="3">3</option>
-    <option value="4">4</option>
-    <option value="5">5</option>
-    <option value="6">6</option>
-    <option value="7">7</option>
-    <option value="8">8</option>
-    <option value="9">9</option>
-    <option value="10">10</option>
-  </select>
+  <img
+    src="{{ product.url }}"
+    alt="{{ product.name }}"
+    class="product-img"
+    routerLink="/product/{{ product.id }}"
+  />
+  <p class="product-name">{{ product.name }}</p>
+  <p class="product-price">${{ product.price }}</p>
 
-  <button class="btn btn-primary" (click)="addToCart(product)">
-    Add to cart
-  </button>
-  <button routerLink="/product/{{ product.id }}">Show details</button>
+  <div class="btns-container">
+    <select
+      class="select-input form-control"
+      #amount
+      (change)="setAmount(amount.value)"
+    >
+      <option value="1">1</option>
+      <option value="2">2</option>
+      <option value="3">3</option>
+      <option value="4">4</option>
+      <option value="5">5</option>
+      <option value="6">6</option>
+      <option value="7">7</option>
+      <option value="8">8</option>
+      <option value="9">9</option>
+      <option value="10">10</option>
+    </select>
+    <button class="btn btn-primary" (click)="addToCart(product)">
+      Add to cart
+    </button>
+  </div>
 </div>

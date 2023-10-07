@@ -12,6 +12,7 @@ import { User } from '../models/user';
 export class CartComponent {
   cartItems: Product[] = [];
   totalPrice: number = 0;
+  // totalAmount: number = 0;
 
   user: User = {
     fullName: '',
@@ -24,6 +25,7 @@ export class CartComponent {
   ngOnInit(): void {
     this.cartItems = this.cartService.getCartItems();
     this.totalPrice = this.cartService.calculateTotalPrice();
+    // this.totalAmount = this.cartService.getTotalAmount();
   }
 
   submitPayment(): void {
