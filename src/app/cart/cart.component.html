@@ -1,4 +1,4 @@
-<div class="cart-items-container">
+<div class="cart-items-container" *ngIf="cartItems.length">
   <div class="cart-items">
     <ul>
       <li *ngFor="let item of cartItems" class="cart-item">
@@ -37,7 +37,7 @@
         [ngModelOptions]="{ standalone: true }"
       />
     </div>
-  
+
     <div class="input-container">
       <label for="">Credit card number</label>
       <input
@@ -52,5 +52,9 @@
     </p>
     <input type="submit" value="Submit" class="btn btn-primary" />
   </form>
-  
+</div>
+
+<div class='empty-cart' *ngIf="!cartItems.length">
+  <h3>You cart has {{cartItems.length}} items.</h3>
+  <a routerLink="/" class='back-to-products'>👈 Back to product list</a>
 </div>

@@ -18,7 +18,7 @@ export class ProductItemComponent {
       price: 0,
       url: '',
       description: '',
-      amount: 0,
+      amount: 1,
     };
   }
 

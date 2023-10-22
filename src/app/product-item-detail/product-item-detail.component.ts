@@ -2,6 +2,7 @@ import { Component, OnInit, OnDestroy } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { ProductService } from '../services/product.service';
 import { Product } from '../models/product';
+import { CartService } from '../services/cart.service';
 
 @Component({
   selector: 'app-product-item-detail',
@@ -10,11 +11,13 @@ import { Product } from '../models/product';
 })
 export class ProductItemDetailComponent {
   productId: number = 1;
-  product: Product | undefined;
+  product: Product;
+  amount: number = 1;
 
   constructor(
     private activatedRoute: ActivatedRoute,
-    private productService: ProductService
+    private productService: ProductService,
+    private cartService: CartService
   ) {
     this.product = {
       id: 0,
@@ -32,9 +35,20 @@ export class ProductItemDetailComponent {
       this.activatedRoute.paramMap.subscribe((param) => {
         this.productId = Number(param.get('id'));
       });
-      this.product = products.find((p) => p.id === this.productId);
+
+      let product = products.find((p) => p.id === this.productId);
+      if (product) {
+        this.product = product;
+      }
     });
   }
 
-  ngOnDestroy() {}
+  addToCart(product: Product): void {
+    product.amount = this.amount;
+    this.cartService.addToCart(product);
+  }
+
+  setAmount(amount: string): void {
+    this.amount = Number(amount);
+  }
 }
