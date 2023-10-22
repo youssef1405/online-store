@@ -4,22 +4,12 @@
     <h2>{{ product.name }}</h2>
     <p>${{ product.price }}</p>
     <p>{{ product.description }}</p>
-    <!-- <select class="select-amount">
-      <option value="1">1</option>
-      <option value="2">2</option>
-      <option value="3">3</option>
-      <option value="4">4</option>
-      <option value="5">5</option>
-      <option value="6">6</option>
-      <option value="7">7</option>
-      <option value="8">8</option>
-      <option value="9">9</option>
-      <option value="10">10</option>
-    </select> -->
-    <input #amount type="number" value="1" class="select-amount" min="1" (change)="setAmount(amount.value)" />
+
+    <input type="number" class="select-amount" [(ngModel)]="amount" min="1" />
     <button class="btn btn-primary" (click)="addToCart(product)">
       Add to cart 🛒
     </button>
+
     <a routerLink="/" class="back-to-products">👈 Back to product list</a>
   </div>
 </div>

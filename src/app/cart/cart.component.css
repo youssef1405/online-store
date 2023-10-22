@@ -62,6 +62,7 @@ ul {
 .payment-msg {
   font-size: 12px;
   color: grey;
+  margin-top: 15px;
 }
 
 .empty-cart {
@@ -75,4 +76,8 @@ ul {
 
 .empty-cart a {
   text-decoration: none;
+}
+
+.error {
+  color: red;
 }

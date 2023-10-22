@@ -11,50 +11,73 @@
 
           <div class="amount-container">
             <p>Amount:</p>
-            <input type="text" value="{{ item.amount }}" />
+            <input type="number" value="{{ item.amount }}" min="1" />
           </div>
         </div>
       </li>
     </ul>
-    <strong>Total {{ totalPrice }}</strong>
+    <strong>Total {{ totalPrice | currency }}</strong>
   </div>
-  <form class="payment-form" (ngSubmit)="submitPayment()">
+  <form class="payment-form" (ngSubmit)="submitPayment()" name="paymentForm">
     <div class="input-container">
       <label>Full name</label>
       <input
         type="text"
-        placeholder="(minimum 3 characters)"
+        placeholder="minimum 3 characters"
+        #fullname="ngModel"
         [(ngModel)]="user.fullName"
         [ngModelOptions]="{ standalone: true }"
+        minlength="3"
       />
+      <span class="error" *ngIf="fullname.errors?.['minlength']"
+        >full name must be at least 3 characters.</span
+      >
     </div>
     <div class="input-container">
       <label for="">Address</label>
       <input
         type="text"
-        placeholder="(minimum 6 characters)"
+        placeholder="minimum 6 characters"
+        #address="ngModel"
         [(ngModel)]="user.address"
         [ngModelOptions]="{ standalone: true }"
+        minlength="6"
       />
+      <span class="error" *ngIf="address.errors?.['minlength']"
+        >Address must be at least 6 characters.</span
+      >
     </div>
 
     <div class="input-container">
       <label for="">Credit card number</label>
       <input
         type="text"
-        placeholder="(16-digit number)"
+        placeholder="16-digit number"
+        #credit="ngModel"
         [(ngModel)]="user.creditCardNo"
         [ngModelOptions]="{ standalone: true }"
+        minlength="16"
       />
+      <span class="error" *ngIf="credit.errors?.['minlength']"
+      >must be 16-digit number</span
+    >
     </div>
+
     <p class="payment-msg">
       We will never share your paymnet details with anyone else
     </p>
-    <input type="submit" value="Submit" class="btn btn-primary" />
+    <input
+      type="submit"
+      value="Submit"
+      class="btn btn-primary"
+      *ngIf="!fullname.errors?.['minlength'] && !address.errors?.['minlength'] &&
+    !credit.errors?.['minlength']"
+      [disabled]="!user.fullName || !user.address || !user.creditCardNo"
+    />
   </form>
 </div>
 
-<div class='empty-cart' *ngIf="!cartItems.length">
-  <h3>You cart has {{cartItems.length}} items.</h3>
-  <a routerLink="/" class='back-to-products'>👈 Back to product list</a>
+<div class="empty-cart" *ngIf="!cartItems.length">
+  <h3>You cart has {{ cartItems.length }} items.</h3>
+  <a routerLink="/" class="back-to-products">👈 Back to product list</a>
 </div>

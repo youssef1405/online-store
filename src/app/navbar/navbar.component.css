@@ -12,6 +12,13 @@ header {
   gap: 15px;
 }
 
+.logo {
+  text-decoration: none;
+  color: #000;
+  font-weight: 500;
+  font-size: 32px;
+}
+
 .header-links a {
   text-decoration: none;
   color: #fff;
