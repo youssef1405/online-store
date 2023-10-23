@@ -44,8 +44,12 @@ export class ProductItemDetailComponent {
   }
 
   addToCart(product: Product): void {
+
     product.amount = this.amount;
     this.cartService.addToCart(product);
+    alert(
+      `You have added ${product.amount} ${product.name} to the cart\nPress OK to confirm`
+    );
   }
 
   setAmount(amount: string): void {

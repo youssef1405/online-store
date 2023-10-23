@@ -59,6 +59,12 @@ ul {
   font-weight: 500;
 }
 
+.input-container input {
+  padding: 10px;
+  border: 1px solid lightblue;
+  border-radius: 8px;
+}
+
 .payment-msg {
   font-size: 12px;
   color: grey;
@@ -78,6 +84,14 @@ ul {
   text-decoration: none;
 }
 
-.error {
+.error,
+.required {
   color: red;
+}
+
+.remove {
+  border: none;
+  background-color: #000;
+  border-radius: 3px;
+  font-size: 18px;
 }

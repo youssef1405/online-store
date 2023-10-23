@@ -18,14 +18,29 @@ export class CartService {
   constructor() {}
 
   addToCart(product: Product): void {
-    this.cartItems.push(product);
+    const newProduct = this.cartItems.find((p) => p.id === product.id);
+    if (newProduct) {
+      this.cartItems = this.cartItems.map((p) => {
+        p.id === newProduct.id ? (p.amount += 1) : p.amount;
+        return p;
+      });
+    } else {
+      this.cartItems.push(product);
+    }
   }
+
+  removeProduct(product: Product): void {
+    this.cartItems = this.cartItems.filter((p) => p.id !== product.id);
+  }
+
+  updateCartItems(newAmount: number, product: Product): void {}
 
   getCartItems(): Product[] {
     return this.cartItems;
   }
 
   calculateTotalPrice(): number {
+    this.totalPrice = 0;
     for (const item of this.cartItems) {
       this.totalPrice += item.price * item.amount;
     }
